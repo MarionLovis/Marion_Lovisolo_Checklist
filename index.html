@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire de tâches</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .buttons-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .btn-completed {
+            background-color: #3baa64;
+        }
+
+        .btn-uncompleted {
+            background-color: #c44040;
+        }
+
+        .btn-all {
+            background-color: #325fc0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        tr.completed {
+            background-color: #f3f4f6;
+        }
+
+        tr.completed td {
+            color: #6b7280;
+        }
+
+        .status-cell {
+            text-align: right;
+        }
+
+        .checkbox-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons-container">
+        <button class="btn-completed" onclick="filterTasks('completed')">
+            Afficher les tâches complétées
+        </button>
+        <button class="btn-uncompleted" onclick="filterTasks('uncompleted')">
+            Afficher les tâches non complétées
+        </button>
+        <button class="btn-all" onclick="filterTasks('all')">
+            Afficher toutes les tâches
+        </button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tâches</th>
+                <th class="status-cell">Statut</th>
+            </tr>
+        </thead>
+        <tbody id="tasks-container">
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
